@@ -1,6 +1,6 @@
 # Road Anomaly Detection
 
-Binary classification of road-surface video sequences (**normal** vs **damage**) using deep learning on spatio-temporal data. The project compares a custom **ConvLSTM2D** architecture against a **transfer-learning approach (MobileNetV2 + LSTM)**, tuning optimizers, batch size, layer width, and activation functions along the way.
+Binary classification of road-surface video sequences (**normal** vs **damage**) using deep learning on spatio-temporal data. The project compares a custom **ConvLSTM2D** architecture against a **transfer-learning approach (MobileNetV2)**, tuning optimizers, batch size, layer width, and activation functions along the way.
 
 ## Problem
 
@@ -21,7 +21,7 @@ Two model families were built and tuned:
 ### 1. ConvLSTM2D (from scratch)
 A `ConvLSTM2D` layer processes the frame sequence directly, followed by batch normalization, a dense head with L2 regularization, and dropout to fight overfitting on a small dataset.
 
-### 2. MobileNetV2 + LSTM (transfer learning)
+### 2. MobileNetV2 (transfer learning)
 Each frame is passed through a frozen, ImageNet-pretrained `MobileNetV2` (via `TimeDistributed` + `GlobalAveragePooling2D`) to extract spatial features, and an `LSTM` layer models the temporal relationship between frames before a dense classification head.
 
 For both families, a small grid search was run over optimizer (Adam / SGD / RMSprop), learning rate, batch size, layer width, and activation function, using class weighting to handle any class imbalance and early stopping / LR reduction on plateau to control training.
@@ -43,7 +43,7 @@ For both families, a small grid search was run over optimizer (Adam / SGD / RMSp
 
 An improved, better-regularized ConvLSTM2D version (wider filters, lower LR, ReduceLROnPlateau) reached **0.98 test accuracy / 0.995 ROC-AUC**.
 
-### MobileNetV2 + LSTM — hyperparameter sweep
+### MobileNetV2 — hyperparameter sweep
 
 | Experiment | Optimizer | LR | Batch | Test Acc | ROC-AUC |
 |---|---|---|---|---|---|
@@ -70,7 +70,7 @@ Each experiment also reports a full classification report, confusion matrix, tra
 
 Confusion matrix shows 50/50 correct on `normal`, 46/50 correct on `damage` (4 false negatives), with **AUC = 0.9948**.
 
-**MobileNetV2 + LSTM**
+**MobileNetV2**
 
 | Training curve | Confusion matrix | ROC curve |
 |---|---|---|
