@@ -60,6 +60,24 @@ An improved, better-regularized ConvLSTM2D version (wider filters, lower LR, Red
 
 Each experiment also reports a full classification report, confusion matrix, training curves, and ROC curve (see the notebooks).
 
+### Visualizations
+
+**ConvLSTM2D + MaxPooling**
+
+| Training curve | Confusion matrix | ROC curve |
+|---|---|---|
+| ![Accuracy](results/1.1.png) | ![Confusion matrix](results/1.2.png) | ![ROC curve](results/1.3.png) |
+
+Confusion matrix shows 50/50 correct on `normal`, 46/50 correct on `damage` (4 false negatives), with **AUC = 0.9948**.
+
+**MobileNetV2 + LSTM**
+
+| Training curve | Confusion matrix | ROC curve |
+|---|---|---|
+| ![Accuracy](results/2.1.png) | ![Confusion matrix](results/2.2.png) | ![ROC curve](results/2.3.png) |
+
+Confusion matrix shows 50/50 correct on `normal`, 48/50 correct on `damage` (2 false negatives), with **AUC = 0.9992**.
+
 ## Tech stack
 
 - Python, TensorFlow / Keras
