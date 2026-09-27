@@ -1,0 +1,17 @@
+# Data & model artifacts
+*.npy
+*.h5
+*.keras
+road_data/
+road_data_numpy/
+road_data_numpy_v2/
+models_mobile/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Colab / OS
+.DS_Store
+.env

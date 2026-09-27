@@ -1,0 +1,7 @@
+numpy
+opencv-python
+matplotlib
+pandas
+tqdm
+scikit-learn
+tensorflow>=2.15
