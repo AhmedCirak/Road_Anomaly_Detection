@@ -1,4 +1,4 @@
-# Road Anomaly Detection (ConvLSTM2D & MobileNetV2 + LSTM)
+# Road Anomaly Detection
 
 Binary classification of road-surface video sequences (**normal** vs **damage**) using deep learning on spatio-temporal data. The project compares a custom **ConvLSTM2D** architecture against a **transfer-learning approach (MobileNetV2 + LSTM)**, tuning optimizers, batch size, layer width, and activation functions along the way.
 
